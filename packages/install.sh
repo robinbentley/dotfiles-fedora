@@ -41,6 +41,7 @@ sudo dnf install -y \
     vim \
     tree \
     unzip \
+    gh \
     gnome-tweaks \
     dotnet-sdk-8.0 \
     code \
