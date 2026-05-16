@@ -1,6 +1,6 @@
 # Fedora Dotfiles
 
-Year of the linux desktop? Fedora Workstation dev box so I can get off WSL on my big machine.
+Year of the linux desktop? Fedora Workstation dev box so I can get rid of WSL from my big machine. All the useful stuff from my old mac dotfiles with updates for the new OS.
 
 ## Requirements
 

@@ -44,6 +44,8 @@ sudo dnf install -y \
     gh \
     gnome-tweaks \
     dotnet-sdk-8.0 \
+    podman-docker \
+    podman-compose \
     code \
     microsoft-edge-stable
 
