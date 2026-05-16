@@ -101,6 +101,13 @@ AWSKEY
     sudo "$AWSTMP/aws/install"
 fi
 
+echo "==> Installing AWS Session Manager plugin"
+if ! command -v session-manager-plugin &>/dev/null; then
+    sudo dnf install -y "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm"
+else
+    echo "AWS Session Manager plugin already installed, skipping"
+fi
+
 echo "==> Configuring GNOME"
 gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" 2>/dev/null \
     || echo "Warning: could not remap Caps Lock — run manually after logging into GNOME"
