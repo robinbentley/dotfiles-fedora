@@ -11,7 +11,7 @@ Fedora Workstation development machine setup.
 ## Install
 
 ```bash
-git clone git@github.com:robinbentley/dotfiles.git ~/dotfiles
+git clone git@github.com:robinbentley/dotfiles-fedora.git ~/dotfiles
 cd ~/dotfiles && bash install.sh
 ```
 
