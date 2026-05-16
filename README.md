@@ -79,3 +79,8 @@ Configure manually after install:
 ```bash
 aws configure
 ```
+
+## Gotchas
+
+**Teams PWA camera not working**
+Edge may overwrite the Teams `.desktop` file on update, removing the Pipewire flag needed for camera access on Wayland. If the camera stops working, add `--enable-features=WebRTCPipeWireCapturer` to the Exec line in `~/.local/share/applications/msedge-ompifgpmddkgmclendfeacglnodjjndh-Default.desktop`.
