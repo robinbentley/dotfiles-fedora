@@ -122,7 +122,7 @@
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "extensions.autoUpdate": true,
+    "extensions.autoUpdate": false,
     "typescript.preferences.quoteStyle": "single",
     "javascript.preferences.quoteStyle": "single",
     "diffEditor.ignoreTrimWhitespace": false,

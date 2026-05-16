@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 # =====================================================
 # Microsoft repo GPG key (shared by VSCode and Edge)
@@ -72,4 +72,7 @@ flatpak list --app | grep -q com.slack.Slack \
 # =====================================================
 # Starship prompt
 # =====================================================
-curl -sS https://starship.rs/install.sh | sh -s -- --yes
+STARSHIP_INSTALL=$(mktemp)
+curl -fsSL "https://starship.rs/install.sh" -o "$STARSHIP_INSTALL"
+sh "$STARSHIP_INSTALL" --yes
+rm -f "$STARSHIP_INSTALL"
