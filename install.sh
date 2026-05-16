@@ -64,9 +64,12 @@ else
     cd "$DOTFILES"
 fi
 
-echo "==> Remapping Caps Lock to Control"
+echo "==> Configuring GNOME"
 gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" 2>/dev/null \
     || echo "Warning: could not remap Caps Lock — run manually after logging into GNOME"
+gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty' 2>/dev/null \
+    || echo "Warning: could not set default terminal — run manually after logging into GNOME"
+gsettings set org.gnome.desktop.default-applications.terminal exec-arg '' 2>/dev/null
 
 echo "==> Generating SSH key"
 mkdir -p "$HOME/.ssh"
