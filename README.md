@@ -1,6 +1,6 @@
-# dotfiles
+# Fedora Dotfiles
 
-Fedora Workstation development machine setup.
+Year of the linux desktop? Fedora Workstation dev box so I can get off WSL on my big machine.
 
 ## Requirements
 
