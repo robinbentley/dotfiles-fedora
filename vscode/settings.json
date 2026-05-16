@@ -1,0 +1,208 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.renderWhitespace": "boundary",
+    "editor.fontFamily": "AdwaitaMono Nerd Font Mono, 'Courier New', monospace",
+    "editor.lineHeight": 32,
+    "editor.fontSize": 13,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "explorer.openEditors.visible": 0,
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false,
+        "editor.fontLigatures": false
+    },
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true,
+        "editor.rulers": [80, 120]
+    },
+    "[dart]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false,
+        "editor.formatOnSave": true
+    },
+    "editor.tabSize": 4,
+    "workbench.startupEditor": "none",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.lineHeight": 1.2,
+    "search.exclude": {
+        "**/.git": true,
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/tmp": true,
+        "**/docs": true,
+        "**/vendor": true,
+        "**/env": true,
+        "**/cache": true
+    },
+    "editor.minimap.enabled": false,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "prettier.trailingComma": "none",
+    "html.format.wrapLineLength": 0,
+    "workbench.colorCustomizations": {
+        "gitDecoration.modifiedResourceForeground": "#FAC863",
+        "statusBar.foreground": "#b2b7ba",
+        "editorError.foreground": "#EC5f67",
+        "editorWarning.foreground": "#99C794"
+    },
+    "files.hotExit": "off",
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.showAbbreviationSuggestions": false,
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "twig": "html"
+    },
+    "workbench.sideBar.location": "left",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/__pycache__": true
+    },
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.pydocstyleEnabled": false,
+    "python.formatting.provider": "black",
+    "editor.dragAndDrop": false,
+    "files.trimFinalNewlines": true,
+    "files.defaultLanguage": "markdown",
+    "workbench.editor.enablePreview": true,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "editor.scrollBeyondLastLine": false,
+    "editor.colorDecorators": false,
+    "explorer.decorations.badges": false,
+    "css.validate": false,
+    "workbench.editor.showTabs": "multiple",
+    "pasteAndIndent.selectAfter": true,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    "git.confirmSync": false,
+    "window.restoreWindows": "none",
+    "window.newWindowDimensions": "maximized",
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.tslint": "explicit"
+    },
+    "material-icon-theme.folders.theme": "classic",
+    "material-icon-theme.hidesExplorerArrows": true,
+    "window.titleBarStyle": "custom",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.renderControlCharacters": true,
+    "breadcrumbs.enabled": false,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "extensions.autoUpdate": true,
+    "typescript.preferences.quoteStyle": "single",
+    "javascript.preferences.quoteStyle": "single",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "go.useLanguageServer": true,
+    "go.formatTool": "goimports",
+    "go.liveErrors": {
+        "enabled": true,
+        "delay": 100
+    },
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "gopls": {
+        "usePlaceholders": true,
+        "completeUnimported": true,
+        "deepCompletion": true
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.formatOnSave": false
+    },
+    "explorer.compactFolders": false,
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[mjml]": {
+        "editor.defaultFormatter": "mjmlio.vscode-mjml"
+    },
+    "files.associations": {
+        "*.js": "javascriptreact",
+        "*.liq": "ocaml"
+    },
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "go.toolsManagement.autoUpdate": true,
+    "telemetry.telemetryLevel": "off",
+    "editor.accessibilitySupport": "off",
+    "editor.inlineSuggest.enabled": true,
+    "prisma.showPrismaDataPlatformNotification": false,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "settingsSync.ignoredExtensions": [],
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        }
+    },
+    "jest.runMode": "on-demand",
+    "terminal.integrated.allowedLinkSchemes": [
+        "file",
+        "http",
+        "https",
+        "mailto",
+        "vscode",
+        "vscode-insiders",
+        "docker-desktop"
+    ],
+    "chat.agent.enabled": true,
+    "docker.extension.enableComposeLanguageServer": false,
+    "workbench.activityBar.location": "top",
+    "application.shellEnvironmentResolutionTimeout": 20,
+    "makefile.configureOnOpen": true,
+    "claudeCode.preferredLocation": "panel",
+    "svelte.enable-ts-plugin": true,
+    "claudeCode.selectedModel": "sonnet",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "workbench.colorTheme": "Gatito Theme"
+}

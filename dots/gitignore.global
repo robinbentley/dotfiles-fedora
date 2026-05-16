@@ -1,0 +1,22 @@
+# Editor
+.vscode/
+*.swp
+*.swo
+*~
+.idea/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+
+# .NET
+bin/
+obj/
+*.user
+
+# Logs
+*.log

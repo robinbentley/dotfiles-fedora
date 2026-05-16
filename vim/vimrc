@@ -1,0 +1,113 @@
+" =====================================================
+" @robinbentley (https://github.com/robinbentley)
+" =====================================================
+
+set nocompatible
+set nobackup
+set directory=~/.vim/swap/
+
+
+" =====================================================
+" Plugins
+" =====================================================
+
+call plug#begin()
+
+Plug 'mhartington/oceanic-next'
+Plug 'sheerun/vim-polyglot'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/nerdtree'
+
+call plug#end()
+
+
+" =====================================================
+" Editing
+" =====================================================
+
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+set number
+syntax on
+set t_Co=256
+set background=dark
+silent! colorscheme OceanicNext
+
+hi LineNr    ctermfg=DarkGrey ctermbg=NONE guifg=#65737e guibg=NONE
+hi Comment   cterm=NONE ctermfg=DarkGrey   guifg=#65737e guibg=NONE
+
+set nowrap
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set smartindent
+set softtabstop=2
+set backspace=indent,eol,start
+
+set splitright
+set splitbelow
+
+set listchars=tab:>-,trail:·,extends:>
+set list
+
+set autoread
+
+set laststatus=2
+set statusline=%f\ %m%r%=%l/%L
+
+
+" =====================================================
+" Mappings
+" =====================================================
+
+let mapleader=","
+let g:mapleader=","
+
+imap jj <esc>
+
+noremap  <Up>    <NOP>
+noremap  <Down>  <NOP>
+noremap  <Left>  <NOP>
+noremap  <Right> <NOP>
+inoremap <Up>    <NOP>
+inoremap <Down>  <NOP>
+inoremap <Left>  <NOP>
+inoremap <Right> <NOP>
+
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
+
+" =====================================================
+" Plugin settings
+" =====================================================
+
+" nerdtree
+map <leader>n :NERDTreeToggle<CR>
+let NERDTreeChDirMode=2
+let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeDirArrowExpandable = '↘'
+let g:NERDTreeDirArrowCollapsible = '↖'
+hi NERDTreeOpenable cterm=NONE ctermbg=NONE ctermfg=DarkBlue guifg=#6699CC guibg=NONE
+hi NERDTreeClosable cterm=NONE ctermbg=NONE ctermfg=DarkBlue guifg=#6699CC guibg=NONE
+
+
+" =====================================================
+" Functions
+" =====================================================
+
+function! CleanOnSave()
+    if &filetype ==# 'markdown'
+        return
+    endif
+    let save_cursor = getpos(".")
+    :silent! %s/\s\+$//e
+    :silent! %s#\($\n\s*\)\+\%$##
+    call setpos('.', save_cursor)
+endfunction
+autocmd BufWritePre * call CleanOnSave()

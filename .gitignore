@@ -1,0 +1,6 @@
+# vim
+*.swp
+*.swo
+
+# mac
+.DS_Store
