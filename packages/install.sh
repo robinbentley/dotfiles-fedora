@@ -42,6 +42,7 @@ sudo dnf install -y \
     tree \
     unzip \
     gh \
+    bat \
     gnome-tweaks \
     dotnet-sdk-8.0 \
     podman-docker \

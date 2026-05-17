@@ -2,7 +2,12 @@
 alias kitty-reload="kill -SIGUSR1 \$(pidof kitty)"
 
 # general
+alias cat="bat --theme=base16 --style=plain"
+alias catl="bat --theme=base16"
+alias batl="catl"
 alias ll='ls -laFh'
+# show permissions as numeric values e.g. 755 -rwxr-xr-x, 4755 -rwsr-xr-x
+alias lln='ls -lFh | awk "{k=0;for(i=0;i<=8;i++){c=substr(\$1,i+2,1);if(c~/[rwxst]/)k+=2^(8-i)};if(substr(\$1,4,1)~/[sS]/)k+=2048;if(substr(\$1,7,1)~/[sS]/)k+=1024;if(substr(\$1,10,1)~/[tT]/)k+=512;if(k)printf(\"%o \",k);print}"'
 alias tree='tree -LC 2'
 alias cl='clear'
 
