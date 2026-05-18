@@ -204,5 +204,6 @@
     "svelte.enable-ts-plugin": true,
     "claudeCode.selectedModel": "sonnet",
     "github.copilot.nextEditSuggestions.enabled": true,
-    "workbench.colorTheme": "Gatito Theme"
+    "workbench.colorTheme": "Gatito Theme",
+    "godotTools.lsp.serverPort": 6005
 }
