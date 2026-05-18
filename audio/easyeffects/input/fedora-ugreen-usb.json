@@ -230,9 +230,9 @@
             "split-channels": false
         },
         "gate#0": {
-            "attack": 10.0,
+            "attack": 5.0,
             "bypass": false,
-            "curve-threshold": -45.0,
+            "curve-threshold": -40.0,
             "curve-zone": -6.0,
             "dry": -80.01,
             "hpf-frequency": 10.0,
