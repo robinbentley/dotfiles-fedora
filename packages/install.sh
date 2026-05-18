@@ -48,7 +48,8 @@ sudo dnf install -y \
     podman-docker \
     podman-compose \
     code \
-    microsoft-edge-stable
+    microsoft-edge-stable \
+    easyeffects
 
 # =====================================================
 # DBeaver Community

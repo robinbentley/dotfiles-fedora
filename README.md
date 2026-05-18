@@ -26,6 +26,7 @@ cd ~/dotfiles && bash install.sh
 - DBeaver Community
 - GNOME Tweaks
 - .NET SDK 8.0
+- EasyEffects
 
 **Via Flatpak**
 - Spotify
@@ -66,7 +67,10 @@ dotfiles/
 ├── vscode/
 │   └── settings.json       # reference copy — managed by VSCode Settings Sync
 ├── audio/
-│   └── audio-defaults.desktop  # autostart: default mic + mute camera audio
+│   ├── audio-defaults.desktop  # autostart: default mic + mute camera audio
+│   └── easyeffects/
+│       └── input/
+│           └── fedora-ugreen-usb.json  # mic processing preset
 ├── resources/
 │   └── fonts/
 │       └── adwaitamonoNF/  # AdwaitaMono Nerd Font Mono (SIL OFL)

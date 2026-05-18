@@ -32,6 +32,8 @@ mkdir -p "$HOME/.config/Code/User"
 ln -sf "$DOTFILES/vscode/settings.json"   "$HOME/.config/Code/User/settings.json"
 mkdir -p "$HOME/.config/autostart"
 ln -sf "$DOTFILES/audio/audio-defaults.desktop" "$HOME/.config/autostart/audio-defaults.desktop"
+mkdir -p "$HOME/.local/share/easyeffects/input"
+ln -sf "$DOTFILES/audio/easyeffects/input/fedora-ugreen-usb.json" "$HOME/.local/share/easyeffects/input/fedora-ugreen-usb.json"
 
 echo "==> Setting zsh as default shell"
 sudo usermod -s "$(which zsh)" "$USER"
