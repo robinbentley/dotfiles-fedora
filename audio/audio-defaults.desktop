@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Audio Defaults
+Exec=bash -c 'sleep 5 && pactl set-default-source alsa_input.usb-JinAudio_UGREEN_USB_MIC-CM581_202508010032-00.analog-stereo && pactl set-source-mute alsa_input.usb-Image__UGREEN_Camera_4K_LL-0000000001-02.analog-stereo 1'
+Hidden=false
+NoDisplay=false
+Terminal=false
+X-GNOME-Autostart-enabled=true

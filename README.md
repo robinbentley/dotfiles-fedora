@@ -65,6 +65,8 @@ dotfiles/
 │   └── starship.toml
 ├── vscode/
 │   └── settings.json       # reference copy — managed by VSCode Settings Sync
+├── audio/
+│   └── audio-defaults.desktop  # autostart: default mic + mute camera audio
 ├── resources/
 │   └── fonts/
 │       └── adwaitamonoNF/  # AdwaitaMono Nerd Font Mono (SIL OFL)

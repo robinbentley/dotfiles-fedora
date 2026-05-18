@@ -30,6 +30,8 @@ mkdir -p "$HOME/.config/kitty"
 ln -sf "$DOTFILES/kitty/kitty.conf"       "$HOME/.config/kitty/kitty.conf"
 mkdir -p "$HOME/.config/Code/User"
 ln -sf "$DOTFILES/vscode/settings.json"   "$HOME/.config/Code/User/settings.json"
+mkdir -p "$HOME/.config/autostart"
+ln -sf "$DOTFILES/audio/audio-defaults.desktop" "$HOME/.config/autostart/audio-defaults.desktop"
 
 echo "==> Setting zsh as default shell"
 sudo usermod -s "$(which zsh)" "$USER"
