@@ -49,29 +49,27 @@ sudo dnf install -y \
     podman-compose \
     code \
     microsoft-edge-stable \
-    easyeffects
-
-# =====================================================
-# DBeaver Community
-# =====================================================
-sudo dnf install -y https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
+    easyeffects \
+    dbeaver-ce \
+    htop \
+    pavucontrol \
+    session-manager-plugin
 
 # =====================================================
 # Flatpak — ensure Flathub remote is configured
 # =====================================================
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-# =====================================================
-# Spotify via Flatpak
-# =====================================================
-flatpak list --app | grep -q com.spotify.Client \
-    || flatpak install -y flathub com.spotify.Client
+FLATPAKS=(
+    com.bitwarden.desktop
+    com.slack.Slack
+    com.spotify.Client
+)
 
-# =====================================================
-# Slack via Flatpak
-# =====================================================
-flatpak list --app | grep -q com.slack.Slack \
-    || flatpak install -y flathub com.slack.Slack
+for app in "${FLATPAKS[@]}"; do
+    flatpak list --app --columns=application | grep -qx "$app" \
+        || flatpak install -y flathub "$app"
+done
 
 # =====================================================
 # Starship prompt
