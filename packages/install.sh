@@ -30,6 +30,13 @@ gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 EOF
 
+# =====================================================
+# RPM Fusion (required for VLC and media codecs)
+# =====================================================
+sudo dnf install -y \
+    https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
 sudo dnf makecache --refresh
 
 # =====================================================
@@ -54,6 +61,17 @@ sudo dnf install -y \
     htop \
     pavucontrol \
     session-manager-plugin
+
+# =====================================================
+# VLC and media codecs (--allowerasing replaces Fedora's
+# libswscale-free with the RPM Fusion ffmpeg-libs build)
+# =====================================================
+sudo dnf install -y --allowerasing \
+    vlc \
+    vlc-plugin-fluidsynth \
+    ffmpeg-libs \
+    x265 \
+    gstreamer1-plugin-libav
 
 # =====================================================
 # Flatpak — ensure Flathub remote is configured
