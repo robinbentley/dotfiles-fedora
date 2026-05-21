@@ -5,11 +5,12 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INSTALL="$SCRIPT_DIR/install.sh"
 IGNORE="$SCRIPT_DIR/.check-ignore"
 
-# Extract dnf packages from the multi-line install block
-DNF_SCRIPT=$(awk '/sudo dnf install -y \\/,/^[[:space:]]*$/' "$INSTALL" \
+# Extract dnf packages from all multi-line install blocks (including --allowerasing variant)
+DNF_SCRIPT=$(awk '/sudo dnf install -y( --allowerasing)? \\/,/^[[:space:]]*$/' "$INSTALL" \
     | grep -v 'sudo dnf install' \
     | sed 's/[[:space:]\\]//g' \
-    | grep -v '^$')
+    | grep -v '^$' \
+    | grep -v '^https://')
 
 ALL_SCRIPT_PKGS="$DNF_SCRIPT"
 

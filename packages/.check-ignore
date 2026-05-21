@@ -197,6 +197,7 @@
 ^realtek-firmware$
 ^rootfiles$
 ^rpm$
+^rpmfusion-
 ^rsync$
 ^rsyslog$
 ^rygel$
