@@ -12,7 +12,11 @@ DNF_SCRIPT=$(awk '/sudo dnf install -y( --allowerasing)? \\/,/^[[:space:]]*$/' "
     | grep -v '^$' \
     | grep -v '^https://')
 
-ALL_SCRIPT_PKGS="$DNF_SCRIPT"
+# Direct RPM installs (no official repo — installed via URL in install.sh)
+DIRECT_RPMS="bruno"
+
+ALL_SCRIPT_PKGS="$DNF_SCRIPT
+$DIRECT_RPMS"
 
 # Flatpak apps listed in install script (reads the FLATPAKS array)
 FLATPAK_SCRIPT=$(awk '/^FLATPAKS=\(/,/^\)/' "$INSTALL" \

@@ -90,6 +90,13 @@ for app in "${FLATPAKS[@]}"; do
 done
 
 # =====================================================
+# Bruno — API client (no official DNF repo)
+# =====================================================
+BRUNO_RPM_URL=$(curl -fsSL https://api.github.com/repos/usebruno/bruno/releases/latest \
+    | grep -oP '"browser_download_url":\s*"\K[^"]+x86_64_linux\.rpm')
+sudo dnf install -y "$BRUNO_RPM_URL"
+
+# =====================================================
 # Starship prompt
 # =====================================================
 STARSHIP_INSTALL=$(mktemp)
