@@ -17,24 +17,30 @@ cd ~/dotfiles && bash install.sh
 
 ## What gets installed
 
-**Packages**
+**Packages (DNF)**
 - Zsh + Starship prompt
 - Kitty terminal
-- Vim
+- Vim, tree, bat, unzip
+- GitHub CLI (`gh`)
+- htop, pavucontrol
 - VSCode (Microsoft RPM repo)
 - Microsoft Edge (for Teams and Outlook PWAs)
 - DBeaver Community
 - GNOME Tweaks
 - .NET SDK 8.0
 - EasyEffects
+- podman-docker + podman-compose (Docker CLI emulation via Podman)
+- VLC + media codecs (via RPM Fusion)
+- Bruno API client (via GitHub RPM)
 
 **Via Flatpak**
-- Spotify
+- Bitwarden
 - Slack
+- Spotify
 
 **Via install scripts**
 - NVM + Node.js LTS
-- AWS CLI
+- AWS CLI + Session Manager plugin
 
 ## Post-install manual steps
 
@@ -66,6 +72,8 @@ dotfiles/
 │   └── starship.toml
 ├── vscode/
 │   └── settings.json       # reference copy — managed by VSCode Settings Sync
+├── containers/
+│   └── containers.conf     # suppress podman compose provider warning
 ├── audio/
 │   ├── audio-defaults.desktop  # autostart: default mic + mute camera audio
 │   └── easyeffects/
