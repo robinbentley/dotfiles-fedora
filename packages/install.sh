@@ -62,6 +62,8 @@ sudo dnf install -y \
     pavucontrol \
     session-manager-plugin
 
+sudo touch /etc/containers/nodocker
+
 # =====================================================
 # VLC and media codecs (--allowerasing replaces Fedora's
 # libswscale-free with the RPM Fusion ffmpeg-libs build)
