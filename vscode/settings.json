@@ -205,5 +205,6 @@
     "claudeCode.selectedModel": "sonnet",
     "github.copilot.nextEditSuggestions.enabled": true,
     "workbench.colorTheme": "Gatito Theme",
-    "godotTools.lsp.serverPort": 6005
+    "godotTools.lsp.serverPort": 6005,
+    "python.analysis.typeCheckingMode": "standard"
 }
