@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+    echo "Usage: heic2jpg [-d] [file|directory]" >&2
+    echo "  -d  delete original HEIC files after successful conversion" >&2
+    exit 1
+}
+
+delete=false
+while getopts ":d" opt; do
+    case $opt in
+        d) delete=true ;;
+        *) usage ;;
+    esac
+done
+shift $(( OPTIND - 1 ))
+
+TARGET="${1:-.}"
+
+convert_file() {
+    local file="$1"
+    local output="${file%.*}.jpg"
+    if [[ -f "$output" ]]; then
+        echo "Skipping: $output already exists"
+        return
+    fi
+    echo "Converting: $file"
+    heif-convert -q 92 "$file" "$output" &>/dev/null
+    $delete && rm "$file"
+    (( count++ )) || true
+}
+
+count=0
+if [[ -f "$TARGET" ]]; then
+    convert_file "$TARGET"
+elif [[ -d "$TARGET" ]]; then
+    while IFS= read -r -d '' file; do
+        convert_file "$file"
+    done < <(find "$TARGET" -maxdepth 1 -iname "*.heic" -print0 | sort -z)
+else
+    echo "Error: '$TARGET' is not a file or directory" >&2
+    exit 1
+fi
+
+echo "Done: $count file(s) converted."

@@ -32,6 +32,10 @@ cd ~/dotfiles && bash install.sh
 - podman-docker + podman-compose (Docker CLI emulation via Podman)
 - VLC + media codecs (via RPM Fusion)
 - Bruno API client (via GitHub RPM)
+- libheif-freeworld + libheif-tools (HEIC image conversion)
+
+**Shell scripts (`~/.local/bin`)**
+- `heic2jpg` — batch convert HEIC photos to JPEG at quality 92 (`heic2jpg [directory]`)
 
 **Via Flatpak**
 - Bitwarden
@@ -55,6 +59,8 @@ cd ~/dotfiles && bash install.sh
 ```
 dotfiles/
 ├── install.sh              # main entry point
+├── scripts/
+│   └── heic2jpg            # HEIC → JPG batch converter
 ├── zshrc
 ├── dots/
 │   ├── gitconfig

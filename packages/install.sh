@@ -62,7 +62,9 @@ sudo dnf install -y \
     dbeaver-ce \
     htop \
     pavucontrol \
-    session-manager-plugin
+    session-manager-plugin \
+    libheif-freeworld \
+    libheif-tools
 
 sudo touch /etc/containers/nodocker
 
