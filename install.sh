@@ -118,6 +118,10 @@ else
     echo "AWS Session Manager plugin already installed, skipping"
 fi
 
+echo "==> Configuring systemd-oomd"
+sudo cp "$DOTFILES/systemd/oomd.conf" /etc/systemd/oomd.conf
+sudo systemctl restart systemd-oomd
+
 echo "==> Configuring GNOME"
 gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" 2>/dev/null \
     || echo "Warning: could not remap Caps Lock — run manually after logging into GNOME"
