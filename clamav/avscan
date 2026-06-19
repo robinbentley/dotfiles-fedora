@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Scan files or directories with ClamAV.
+# Usage: avscan [path] [clamscan options...]
+#
+# Notable pass-through options:
+#   -i, --infected        Only print infected files (quiet output)
+#       --move=DIR        Override default quarantine dir (/var/quarantine/clamav)
+#       --log=FILE        Write results to FILE in addition to stdout
+#       --allmatch        Report all signature matches per file, not just first
+#       --no-summary      Suppress the totals line at the end
+set -euo pipefail
+
+QUARANTINE=/var/quarantine/clamav
+
+if [[ $# -eq 0 || "${1:0:1}" == "-" ]]; then
+    TARGET="."
+else
+    TARGET="$1"
+    shift
+fi
+
+# Use default quarantine unless the caller has specified --move
+move_opt="--move=$QUARANTINE"
+for arg in "$@"; do
+    [[ "$arg" == --move=* ]] && move_opt="" && break
+done
+
+exec clamscan --recursive ${move_opt:+"$move_opt"} "$TARGET" "$@"

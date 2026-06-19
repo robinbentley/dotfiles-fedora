@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily ClamAV scan of /home
+
+[Timer]
+OnCalendar=*-*-* 02:00:00
+RandomizedDelaySec=30m
+Persistent=true
+WakeSystem=true
+
+[Install]
+WantedBy=timers.target

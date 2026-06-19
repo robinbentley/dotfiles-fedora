@@ -19,6 +19,8 @@ cp "$DOTFILES/resources/fonts/adwaitamonoNF/"*.ttf "$FONT_DIR/"
 fc-cache -f "$FONT_DIR"
 
 echo "==> Symlinking dotfiles"
+mkdir -p "$HOME/.local/bin"
+ln -sf "$DOTFILES/clamav/avscan"          "$HOME/.local/bin/avscan"
 ln -sf "$DOTFILES/zshrc"                  "$HOME/.zshrc"
 ln -sf "$DOTFILES/vim/vimrc"              "$HOME/.vimrc"
 ln -sf "$DOTFILES/dots/gitconfig"         "$HOME/.gitconfig"

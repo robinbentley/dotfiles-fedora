@@ -1,0 +1,6 @@
+[Unit]
+Description=ClamAV infection desktop alert
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/clamav-notify.sh

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
 # =====================================================
 # Microsoft repo GPG key (shared by VSCode and Edge)
 # =====================================================
@@ -97,6 +99,33 @@ done
 BRUNO_RPM_URL=$(curl -fsSL https://api.github.com/repos/usebruno/bruno/releases/latest \
     | grep -oP '"browser_download_url":\s*"\K[^"]+x86_64_linux\.rpm')
 sudo dnf install -y "$BRUNO_RPM_URL"
+
+# =====================================================
+# ClamAV — antivirus with daily /home scan
+# =====================================================
+sudo dnf install -y clamav clamav-update clamd
+
+# Remove the 'Example' placeholder that prevents both configs from loading,
+# and uncomment the LocalSocket line that clamd requires to start
+sudo sed -i '/^Example$/d' /etc/freshclam.conf
+sudo sed -i '/^Example$/d' /etc/clamd.d/scan.conf
+sudo sed -i 's|^#LocalSocket |LocalSocket |' /etc/clamd.d/scan.conf
+
+# Keep virus definitions current
+sudo systemctl enable --now clamav-freshclam.service
+
+# Start the scanning daemon
+sudo systemctl enable --now clamd@scan.service
+
+# Install and enable the nightly /home scan (runs at 02:00, boots catch up via Persistent=true)
+sudo install -m 644 "$DOTFILES_DIR/clamav/clamav-scan-home.service" /etc/systemd/system/
+sudo install -m 644 "$DOTFILES_DIR/clamav/clamav-scan-home.timer"   /etc/systemd/system/
+sudo install -m 644 "$DOTFILES_DIR/clamav/clamav-notify.service"    /etc/systemd/system/
+sudo install -m 755 "$DOTFILES_DIR/clamav/clamav-scan-home.sh"      /usr/local/bin/
+sudo install -m 755 "$DOTFILES_DIR/clamav/clamav-notify.sh"         /usr/local/bin/
+sudo install -d -m 1777 /var/quarantine/clamav
+sudo systemctl daemon-reload
+sudo systemctl enable --now clamav-scan-home.timer
 
 # =====================================================
 # Starship prompt

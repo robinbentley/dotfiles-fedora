@@ -1,0 +1,13 @@
+[Unit]
+Description=Daily ClamAV scan of /home
+After=clamd@scan.service
+Requires=clamd@scan.service
+OnFailure=clamav-notify.service
+
+[Service]
+Type=oneshot
+ExecStart=systemd-inhibit --what=sleep:idle --who=clamav --why="ClamAV scan in progress" /usr/local/bin/clamav-scan-home.sh
+Nice=10
+IOSchedulingClass=idle
+UMask=0022
+LogsDirectory=clamav
