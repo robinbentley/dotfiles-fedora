@@ -129,6 +129,22 @@ gsettings set org.gnome.desktop.default-applications.terminal exec 'kitty' 2>/de
     || echo "Warning: could not set default terminal — run manually after logging into GNOME"
 gsettings set org.gnome.desktop.default-applications.terminal exec-arg '' 2>/dev/null
 
+echo "==> Installing Claude Code"
+npm install -g @anthropic-ai/claude-code
+# Symlink into ~/.local/bin so claude is reachable regardless of active nvm version
+ln -sf "$(which claude)" "$HOME/.local/bin/claude"
+
+echo "==> Setting up Claude Code config dirs"
+mkdir -p "$HOME/.claude-personal" "$HOME/.claude-work"
+if [ ! -L "$HOME/.claude" ]; then
+    if [ -d "$HOME/.claude" ]; then
+        cp -a "$HOME/.claude/." "$HOME/.claude-personal/"
+        mv "$HOME/.claude" "$HOME/.claude.bak"
+        echo "    Existing ~/.claude backed up to ~/.claude.bak"
+    fi
+    ln -s "$HOME/.claude-personal" "$HOME/.claude"
+fi
+
 echo "==> Generating SSH key"
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
@@ -159,3 +175,8 @@ echo "  2. Log out and back in for the shell change to take effect"
 echo "  3. Open Edge -> teams.microsoft.com -> sign in -> Settings -> Install this site as an app"
 echo "  4. Open Edge -> outlook.office.com  -> sign in -> Settings -> Install this site as an app"
 echo "  5. In VSCode: set font family to 'AdwaitaMono Nerd Font Mono' after Settings Sync runs"
+echo "  6. Authenticate Claude Code accounts (in a new shell after zshrc reloads):"
+echo "       CLAUDE_CONFIG_DIR=~/.claude-personal claude   # personal account"
+echo "       CLAUDE_CONFIG_DIR=~/.claude-work claude        # work account"
+echo "     For work project roots, add a .envrc and run 'direnv allow':"
+echo "       echo 'export CLAUDE_CONFIG_DIR=~/.claude-work' > .envrc && direnv allow"

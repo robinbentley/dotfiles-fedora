@@ -64,7 +64,8 @@ sudo dnf install -y \
     pavucontrol \
     session-manager-plugin \
     libheif-freeworld \
-    libheif-tools
+    libheif-tools \
+    direnv
 
 sudo touch /etc/containers/nodocker
 
